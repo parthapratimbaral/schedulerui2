@@ -1,0 +1,24 @@
+<h1>Login !</h1>
+<div class="container">
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>User Name :</td> 
+                    <td><input type="text" name=#username [(ngModel)]="username"></td>
+                </tr>
+                <tr>
+                    <td>Password :</td>
+                    <td><input type="password" name="password" [(ngModel)]="password"></td>
+                </tr>
+                <br>
+                <tr>
+                    <td></td>
+                    <td><button (click)=handleLogin() class="btn btn-primary">Login</button></td>
+                    <!-- partha/dummy  -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

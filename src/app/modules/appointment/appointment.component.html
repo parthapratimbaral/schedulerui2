@@ -1,0 +1,79 @@
+<h1>ADD APPOINTMENT</h1>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="alert alert-warning" *ngIf='warnMessage'>{{warnMessage}}</div>
+<form (ngSubmit)="saveAppointment()" #appointmentForm="ngForm">
+    <div class="form-group row">
+        <label for="Patient" class="col-sm-2 col-form-label">Patient Name</label>
+        <div class="col-sm-3">
+            <input type="text" #patientName="ngModel" [(ngModel)]="appointment.patientName" name="patientName"
+                class="form-control" [disabled]="appointment.id != -1" required="required" minlength="5">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Patient Indication</label>
+        <div class="col-sm-3">
+            <textarea #indication="ngModel" [(ngModel)]="appointment.indication" name="desccription"
+                class="form-control" rows="2" [disabled]="appointment.id != -1">
+                </textarea>
+        </div>
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Patient Staus</label>
+        <div class="col-sm-3">
+            <select #status="ngModel" [(ngModel)]="appointment.status" name="status" class='form-control'>
+                <option value="Selet"></option>
+                <option value="Registeres">Registeres</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Rejected">Rescheduled</option>
+                <option value="Treated">Treated</option>
+                <option value="Complete">Complete</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Doctor Name</label>
+        <div class="col-sm-3">
+            <input type="text" #doctorName="ngModel" [(ngModel)]="appointment.doctorName" name="doctorName"
+                class="form-control" [disabled]="appointment.id != -1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Appointment Date</label>
+        <div class="col-sm-3">
+            <input type="date" #appointmentDate="ngModel" [ngModel]="appointment.appointmentDate | date: 'yyyy-MM-dd'"
+                name="appointmentDate" class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Appointment Time</label>
+        <div class="col-sm-3">
+            <input type="text" #appointmentTime="ngModel" [(ngModel)]="appointment.appointmentTime"
+                name="appointmentTime" class="form-control" [disabled]="appointment.id != -1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Appointment Duration</label>
+        <div class="col-sm-3">
+            <input type="text" #appointmentDuration="ngModel" [(ngModel)]="appointment.appointmentDuration"
+                name="appointmentDuration" class="form-control" [disabled]="appointment.id != -1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Doctor Speciality</label>
+        <div class="col-sm-3">
+            <input type="text" #doctorSpeciality="ngModel" [(ngModel)]="appointment.doctorSpeciality"
+                name="doctorSpeciality" class="form-control" [disabled]="appointment.id != -1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Doctor Fee</label>
+        <div class="col-sm-3">
+            <input type="text" #doctorFee="ngModel" [(ngModel)]="appointment.doctorFee" name="doctorFee"
+                class="form-control" [disabled]="appointment.id != -1">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
